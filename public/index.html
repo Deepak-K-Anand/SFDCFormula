@@ -15,6 +15,7 @@
         <!--Font Awesome-->
         <link rel="stylesheet" type="text/css" href="assets/css/third-party/fontawesome/font-awesome.min.css" />
         
+        <!--Custom-->
         <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     </head>
     <body>
@@ -34,7 +35,7 @@
                                 <div class="col-lg-8">
                                     <select class="form-control" id="mode">
                                         <option value="formula">Formula</option>
-                                        <option value="java">Java</option>
+                                        <option value="apex">Apex</option>
                                         <option value="css">CSS</option>
                                         <option value="javascript">JavaScript</option>
                                         <option value="html">HTML</option>
@@ -49,6 +50,7 @@
                                     <select class="form-control" id="theme">
                                         <option value="monokai">Monokai</option>
                                         <option value="chrome">Chrome</option>
+                                        <option value="eclipse">Eclipse</option>
                                     </select>
                                 </div>
                             </div>
@@ -122,10 +124,27 @@
         <!--Bootstrap-->
         <script type="text/javascript" src="assets/js/third-party/bootstrap/bootstrap.min.js"></script>
 
-        <!--Ace-->
+        <!--Ace Core-->
         <script type="text/javascript" src="assets/js/third-party/ace/core/ace.js"></script>
-        <script type="text/javascript" src="assets/js/third-party/ace/mode/sfformula.js"></script>
+        
+        <!--Ace Modes-->
+        <script type="text/javascript" src="assets/js/third-party/ace/mode/mode-sfformula.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/mode/mode-java.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/mode/mode-css.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/mode/mode-javascript.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/mode/mode-html.js"></script>
+
+        <!--Ace Themes-->
         <script type="text/javascript" src="assets/js/third-party/ace/theme/theme-monokai.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/theme/theme-chrome.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/theme/theme-eclipse.js"></script>
+        
+        <!--Ace Snippets-->
+        <script type="text/javascript" src="assets/js/third-party/ace/snippets/css.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/snippets/html.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/snippets/javascript.js"></script>
+
+        <!--Ace Tools-->
         <script type="text/javascript" src="assets/js/third-party/ace/tools/ext-language_tools.js"></script>
 
         <!--Slideout-->
