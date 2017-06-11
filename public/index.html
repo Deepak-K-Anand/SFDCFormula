@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Formula Editor for Salesforce</title>
+
+        <link rel="icon" href="assets/img/icon16.png" />
+
+        <!--Bootstrap-->
+        <link rel="stylesheet" type="text/css" href="assets/css/third-party/bootstrap/bootstrap.min.css" />
+
+        <!--Font Awesome-->
+        <link rel="stylesheet" type="text/css" href="assets/css/third-party/fontawesome/font-awesome.min.css" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    </head>
+    <body>
+        <div id="mdlSettings" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Settings</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="mode" class="col-lg-4 control-label">
+                                    Mode&nbsp;<i class="fa fa-code fa-fw" aria-hidden="true"></i>
+                                </label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" id="mode">
+                                        <option value="formula">Formula</option>
+                                        <option value="java">Java</option>
+                                        <option value="css">CSS</option>
+                                        <option value="javascript">JavaScript</option>
+                                        <option value="html">HTML</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="theme" class="col-lg-4 control-label">
+                                    Theme&nbsp;<i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i>
+                                </label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" id="theme">
+                                        <option value="monokai">Monokai</option>
+                                        <option value="chrome">Chrome</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="theme" class="col-lg-4 control-label">
+                                    Font Size&nbsp;<i class="fa fa-font fa-fw" aria-hidden="true"></i>
+                                </label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" type="number" min="10" max="24" step="1" value="16">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav id="menu" style="display: none">
+            <div class="container-fluid">
+                <h4><strong>Credits</strong></h4>
+                <div class="m-t-1">
+                    Built by <a target="_blank" href="https://success.salesforce.com/profile?u=00530000007r9WpAAI"><strong>Deepak</strong></a> with <img src="assets/img/love.png" />
+                    for the Salesforce Success Community
+                </div>
+                <div class="m-t-1">
+                    Proudly hosted on <a target="_blank" href="https://firebase.google.com/">
+                        <strong>Firebase</strong>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main id="panel">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand sidebar-menu-toggle cursor--pointer">
+                            ☰
+                        </a>
+                        <a class="navbar-brand navbar-brand--no-margin">
+                            <img src="assets/img/icon24.png" class="navbar-header-logo" />
+                            <span class="cursor-none">Formula Editor for Salesforce</span>
+                        </a>
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbar-main">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a class="cursor--pointer" data-toggle="modal" data-target="#mdlSettings">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Settings
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formula-editor"></div>
+        </main>
+
+        <!--jQuery-->
+        <script type="text/javascript" src="assets/js/third-party/jquery/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/jquery/jquery-ui.min.js"></script>
+
+        <!--Bootstrap-->
+        <script type="text/javascript" src="assets/js/third-party/bootstrap/bootstrap.min.js"></script>
+
+        <!--Ace-->
+        <script type="text/javascript" src="assets/js/third-party/ace/core/ace.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/mode/sfformula.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/theme/theme-monokai.js"></script>
+        <script type="text/javascript" src="assets/js/third-party/ace/tools/ext-language_tools.js"></script>
+
+        <!--Slideout-->
+        <script type="text/javascript" src="assets/js/third-party/slideout/slideout.min.js"></script>
+
+        <!--Custom-->
+        <script type="text/javascript" src="assets/js/constants.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+    </body>
+</html>
