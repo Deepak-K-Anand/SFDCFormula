@@ -7,7 +7,7 @@
 
         <title>Formula Editor for Salesforce</title>
 
-        <link rel="icon" href="assets/img/icon16.png" />
+        <link rel="shortcut icon" href="assets/img/icon16.png" />
 
         <!--Bootstrap-->
         <link rel="stylesheet" type="text/css" href="assets/css/third-party/bootstrap/bootstrap.min.css" />
@@ -19,12 +19,15 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     </head>
     <body>
+        <!--Settings Modal-->
         <div id="mdlSettings" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Settings</h4>
+                        <h4 class="modal-title">
+                            <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Settings
+                        </h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-horizontal">
@@ -33,12 +36,12 @@
                                     Mode&nbsp;<i class="fa fa-code fa-fw" aria-hidden="true"></i>
                                 </label>
                                 <div class="col-lg-8">
-                                    <select class="form-control" id="mode">
-                                        <option value="formula">Formula</option>
-                                        <option value="apex">Apex</option>
-                                        <option value="css">CSS</option>
-                                        <option value="javascript">JavaScript</option>
-                                        <option value="html">HTML</option>
+                                    <select class="form-control" id="mode" data-settings="mode">
+                                        <option value="ace/mode/sfformula">Formula</option>
+                                        <option value="ace/mode/java">Apex</option>
+                                        <option value="ace/mode/css">CSS</option>
+                                        <option value="ace/mode/javascript">JavaScript</option>
+                                        <option value="ace/mode/html">HTML</option>
                                     </select>
                                 </div>
                             </div>
@@ -47,10 +50,10 @@
                                     Theme&nbsp;<i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i>
                                 </label>
                                 <div class="col-lg-8">
-                                    <select class="form-control" id="theme">
-                                        <option value="monokai">Monokai</option>
-                                        <option value="chrome">Chrome</option>
-                                        <option value="eclipse">Eclipse</option>
+                                    <select class="form-control" id="theme" data-settings="theme">
+                                        <option value="ace/theme/monokai">Monokai</option>
+                                        <option value="ace/theme/chrome">Chrome</option>
+                                        <option value="ace/theme/eclipse">Eclipse</option>
                                     </select>
                                 </div>
                             </div>
@@ -59,32 +62,58 @@
                                     Font Size&nbsp;<i class="fa fa-font fa-fw" aria-hidden="true"></i>
                                 </label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" type="number" min="10" max="24" step="1" value="16">
+                                    <input class="form-control" id="fontSize" data-settings="fontSize" type="number" min="10" max="24" step="1" value="16">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="App.saveEditorSettings()">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--Sidebar Menu-->
         <nav id="menu" style="display: none">
             <div class="container-fluid">
+                <!--Credits-->
                 <h4><strong>Credits</strong></h4>
                 <div class="m-t-1">
                     Built by <a target="_blank" href="https://success.salesforce.com/profile?u=00530000007r9WpAAI"><strong>Deepak</strong></a> with <img src="assets/img/love.png" />
-                    for the Salesforce Success Community
+                    for the <a target="_blank" href="https://success.salesforce.com/">Salesforce Success Community</a>.
                 </div>
                 <div class="m-t-1">
-                    Proudly hosted on <a target="_blank" href="https://firebase.google.com/">
-                        <strong>Firebase</strong>
-                    </a>
+                    Powered by <a target="_blank" href="https://ace.c9.io/"><strong>Ace</strong></a> and proudly hosted on <a target="_blank" href="https://firebase.google.com/">
+                        <strong>Firebase</strong></a>.
+                </div>
+
+                <!--Links-->
+                <h4 class="m-t-2"><strong>Help Links</strong></h4>
+                <div class="m-t-1">
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://help.salesforce.com/articleView?id=customize_functions.htm&language=en_US&type=0">Formula Operators and Functions</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://help.salesforce.com/articleView?id=useful_advanced_formulas.htm&language=en&type=0">Examples of Advanced Formula Fields</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Trailhead-->
+                <h4 class="m-t-2"><strong>Trailhead</strong></h4>
+                <div class="m-t-1">
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://trailhead.salesforce.com/modules/point_click_business_logic">Formulas &amp; Validations</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
+
+        <!--Body-->
         <main id="panel">
             <div class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
@@ -114,6 +143,7 @@
                 </div>
             </div>
 
+            <!--Editor-->
             <div id="formula-editor"></div>
         </main>
 

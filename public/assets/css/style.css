@@ -1,3 +1,6 @@
+/**
+ * Navbar and Sidebar Menu
+ */
 .sidebar-menu-toggle {
   border-right: 1px solid #e6e6e6;
   background-color: #e7e7e7;
@@ -11,12 +14,22 @@
   display: inline !important;
 }
 
+/**
+ * Editor
+ */
+ul, ol {
+  padding: 0 0 0 20px;
+}
+
+/**
+ * Miscellaneous
+ */
 #formula-editor {
-    position: fixed;
-    top: 54px;
-    left: 0%;
-    height: 100%;
-    width: 100%;
+  position: fixed;
+  top: 54px;
+  left: 0%;
+  height: 100%;
+  width: 100%;
 }
 
 .cursor--pointer {
@@ -38,6 +51,7 @@
 .m-t-3 {
   margin-top: 3em;
 }
+
 /**
  * Slideout
  */
@@ -85,20 +99,16 @@ body {
 }
 
 /**
- * ACE Monokai Theme Overrides
+ * ACE Theme Overrides
  */
-.ace-monokai .ace_identifier {
-    font-style: italic;
+.ace_identifier {
+  font-style: italic;
 }
 
-.ace-monokai .ace_support.ace_function {
-    font-weight: bold;
+.ace_support.ace_function {
+  font-weight: bold;
 }
 
-.ace-monokai .ace_punctuation.ace_operator {
-    font-weight: bold;
-}
-
-.ace-monokai .ace_constant.ace_numeric {
-    color: #ff9800 !important;
+.ace_punctuation.ace_operator {
+  font-weight: bold;
 }
