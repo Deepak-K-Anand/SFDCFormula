@@ -11,6 +11,13 @@ var App = (
         ///////////////////////
         //Settings Functions //
         ///////////////////////
+        
+        /**
+         * The settings are saved in the
+         * Local Storage. This method reads
+         * the Local Storage and fetches any
+         * previously stored settings.
+         */
         var __getSettings = function() {
             var settings = {};
 
@@ -21,6 +28,16 @@ var App = (
             return settings;
         };
 
+        /**
+         * Saves the passed in "settings"
+         * into the Local Storage. If
+         * there is any previously
+         * stored settings then values
+         * are replaced.
+         *
+         * @param   newSettings     New Settings saved by the
+         *                          User via the Settings Modal.
+         */
         var __setSettings = function( newSettings ) {
             var existingSettings = __getSettings();
 
@@ -31,15 +48,17 @@ var App = (
             localStorage.settings = JSON.stringify( existingSettings );
         };
 
+        /**
+         * Generating the Default Settings
+         * that needs to be used when the
+         * editor is opened for the first
+         * time.
+         */
         var __createDefaultSettings = function() {
             var defSettings = __getSettings();
 
             if( Object.keys( defSettings ).length === 0 ) {
-                defSettings = {
-                    mode        : "ace/mode/sfformula",
-                    theme       : "ace/theme/monokai",
-                    fontSize    : "16"
-                };
+                defSettings = Constants.ACE_DEF_SETTINGS;
 
                 __setSettings( defSettings );
             }
@@ -57,6 +76,12 @@ var App = (
             //Set font size
             __editor.setFontSize( parseInt( settings.fontSize ) );
 
+            /**
+             * Read the stored settings from the
+             * Local Storage and set the Input Fields
+             * in the "Settings" Modal to values
+             * that were read.
+             */
             jQuery( "[data-settings]" ).each(
                 function() {
                     var key = jQuery( this ).data( "settings" );
@@ -66,6 +91,11 @@ var App = (
             );
         };
 
+        /**
+         * Capture all the new settings selected
+         * by the User and save it to the Local
+         * Storage.
+         */
         var __saveEditorSettings = function() {
             var newSettings = {}; 
 
@@ -108,10 +138,10 @@ var App = (
         var __initSlideout = function() {
             var slideout = new Slideout(
                 {
-                    "panel"     : jQuery( "#panel" )[0],
-                    "menu"      : jQuery( "#menu" )[0],
-                    "padding"   : 256,
-                    "tolerance" : 70
+                    panel     : jQuery( "#panel" )[0],
+                    menu      : jQuery( "#menu" )[0],
+                    padding   : 256,
+                    tolerance : 70
                 }
             );
 
